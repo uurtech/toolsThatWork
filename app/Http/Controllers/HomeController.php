@@ -18,4 +18,16 @@ class HomeController extends Controller
         $this->info['en']['page']="Tools that work";
         return view("welcome",['info' => $this->info[\App::getLocale()]]);
     }
+
+    public function About(){
+        return "about";
+    }
+
+    public function Service(){
+        return "service";
+    }
+
+    public function Request(){
+        return "Request";
+    }
 }
