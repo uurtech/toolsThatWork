@@ -24,13 +24,13 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/About">@lang("home.about")</a>
+                  <a class="nav-link" href="{{ URL::TO('About')}}">@lang("home.about")</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/Service">@lang("home.services")</a>
+                  <a class="nav-link" href="{{ URL::TO('Service')}}">@lang("home.services")</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/Request">@lang("home.request")</a>
+                  <a class="nav-link" href="{{ URL::TO('Request')}}">@lang("home.request")</a>
                 </li>
               </ul>
             </div>
