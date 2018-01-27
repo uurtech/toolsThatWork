@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://phpanaliz.com/tools/public/'),
+    'url' => env('APP_URL', 'https://phpanaliz.com/tools/'),
 
     /*
     |--------------------------------------------------------------------------
