@@ -17,4 +17,5 @@ return [
     "stringOneLiner" => "String One Liner",
     "data" => "Data",
     "winnerCount" => "How Many Winners",
+    "welcome" => "Hello, this is the tool improves itself with your help."
 ];
