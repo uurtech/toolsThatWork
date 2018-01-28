@@ -28,16 +28,16 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
+                <li class="nav-item">
                   <a class="nav-link" href="/">@lang("home.home")
                   </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{{ URL::TO('About')}}">@lang("home.about")</a>
                 </li>
-                <li class="nav-item">
+                <!--<li class="nav-item">
                   <a class="nav-link" href="{{ URL::TO('Service')}}">@lang("home.services")</a>
-                </li>
+                </li>-->
                 <li class="nav-item">
                   <a class="nav-link" href="{{ URL::TO('Request')}}">@lang("home.request")</a>
                 </li>

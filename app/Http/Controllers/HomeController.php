@@ -20,7 +20,17 @@ class HomeController extends Controller
     }
 
     public function About(){
-        return "about";
+        $this->info['tr']['title']="Online İşe Yarayan Araçlar - Hakkında";
+        $this->info['en']['title']="Tools That Work - About ";
+        $this->info['tr']['action']="İşe Yarayan Araçlar - Hakkında";
+        $this->info['en']['action']="Tools That work - About";
+        $this->info['tr']['description']="Online ve ücretsiz kullanabileceğiniz araçlar hakkında";
+        $this->info['en']['description']="Online free tools that work for you - about";
+        $this->info['tr']['page']="İşe Yarayan Araçlar - Hakkında";
+        $this->info['en']['page']="Tools that work - About";    
+        
+        return view("about",['info' => $this->info[\App::getLocale()]]);
+    
     }
 
     public function Service(){
@@ -28,6 +38,15 @@ class HomeController extends Controller
     }
 
     public function Request(){
-        return "request";
+        $this->info['tr']['title']="Online İşe Yarayan Araçlar - İletişim";
+        $this->info['en']['title']="Tools That Work - Request ";
+        $this->info['tr']['action']="İşe Yarayan Araçlar - İletişim";
+        $this->info['en']['action']="Tools That work - Request";
+        $this->info['tr']['description']="Online ve ücretsiz kullanabileceğiniz araçlar iletişim";
+        $this->info['en']['description']="Online free tools that work for you - request";
+        $this->info['tr']['page']="İşe Yarayan Araçlar - iletişim";
+        $this->info['en']['page']="Tools that work - request";    
+        
+        return view("request",['info' => $this->info[\App::getLocale()]]);
     }
 }
