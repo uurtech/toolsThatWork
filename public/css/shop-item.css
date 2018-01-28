@@ -15,7 +15,7 @@ body {
 }
 
 form input:not([type="submit"]), form select, form label{
-  width:50% !important;
+  width:60% !important;
   float:left;
   margin-top:5px;
 }

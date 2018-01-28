@@ -10,7 +10,7 @@
     <div>@lang("home.data")</div>
     <textarea name="data" class="form-control" placeholder="Datas line by line"></textarea>
     <br />
-    <input type="submit" class="btn btn-success form-control">
+    <input type="submit" class="btn btn-success">
 </form>
 
 @if(isset($datas))

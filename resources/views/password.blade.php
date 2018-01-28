@@ -30,7 +30,8 @@
         <input type="text" value="{{$generatedPassword}}" style="color:green"/>
         @endif
     @endif
-    <input type="submit" class="btn btn-success form-control">
+    
+    <input type="submit" class="btn btn-success">
 
 </form>
 
