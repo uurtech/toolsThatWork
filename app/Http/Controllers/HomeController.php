@@ -28,6 +28,6 @@ class HomeController extends Controller
     }
 
     public function Request(){
-        return "Request";
+        return "request";
     }
 }

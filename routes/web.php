@@ -14,9 +14,9 @@
 Route::get('/', 'HomeController@index');
 Route::get('/tool/raffle','ToolsController@raffle');
 Route::get('/tool/passwordGenerator','ToolsController@password');
-Route::get('/tool/About','HomeController@About');
-Route::get('/tool/Service','HomeController@Service');
-Route::get('/tool/Request','HomeController@Request');
+Route::get('/About','HomeController@About');
+Route::get('/Service','HomeController@Service');
+Route::get('/Request','HomeController@Request');
 
 
 Route::post('/tool/raffle','ToolsController@raffle');
