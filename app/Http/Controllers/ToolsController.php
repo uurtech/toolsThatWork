@@ -108,10 +108,30 @@ class ToolsController extends Controller
         $this->info['tr']['page']="Encode (Şifreleme)";
         $this->info['en']['page']="Encode Tool";
         
+        
+
         return view("encode",['info' => $this->info[\App::getLocale()]]);
     }
 
-    public function encodeType($type){
-        return $type;
+    public function encodeType($type, Request $request){
+        $encodedData = "";
+        $raw = "";
+
+        if($type === "md5Encode"){
+            $this->info['tr']['title']="MD5 Encode (Şifreleme) Online ve Ücretsiz";
+            $this->info['en']['title']="Online MD5 Encode Tool";
+            $this->info['tr']['action']="MD5 Encode (Şifreleme)";
+            $this->info['en']['action']="MD5 Encode Tool";
+            $this->info['tr']['description']="Online ve ücretsiz MD5 encode (şifreleme) aracı.";
+            $this->info['en']['description']="Online MD5 Encode Tool";
+            $this->info['tr']['page']="MD5 Encode (Şifreleme)";
+            $this->info['en']['page']="MD5 Encode Tool";
+            $encodedData = ($request->encodeString != null) ? md5($request->encodeString) : "" ;
+            $raw = ($request != null) ? $request->encodeString : "";
+        }
+
+        return view("encoders.".$type, ['info' => $this->info[\App::getLocale()],'data' => $encodedData,'raw' => $raw]);
+
+
     }
 }

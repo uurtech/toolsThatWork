@@ -22,3 +22,4 @@ Route::get('/tool/encode/{type}','ToolsController@encodeType');
 
 Route::post('/tool/raffle','ToolsController@raffle');
 Route::post('/tool/passwordGenerator','ToolsController@password');
+Route::post('/tool/encode/{type?}/{request?}', 'ToolsController@encodeType');
