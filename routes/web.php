@@ -17,7 +17,8 @@ Route::get('/tool/passwordGenerator','ToolsController@password');
 Route::get('/About','HomeController@About');
 Route::get('/Service','HomeController@Service');
 Route::get('/Request','HomeController@Request');
-
+Route::get('/tool/encode/','ToolsController@encode');
+Route::get('/tool/encode/{type}','ToolsController@encodeType');
 
 Route::post('/tool/raffle','ToolsController@raffle');
 Route::post('/tool/passwordGenerator','ToolsController@password');

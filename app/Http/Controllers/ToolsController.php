@@ -95,6 +95,23 @@ class ToolsController extends Controller
         }
         
         return view("password",['info' => $this->info[\App::getLocale()],'generatedPassword' => $generatedPassword]);
+    }
+    
 
+    public function encode(Request $request){
+        $this->info['tr']['title']="Encode (Şifreleme) Online ve Ücretsiz";
+        $this->info['en']['title']="Online Encode Tool";
+        $this->info['tr']['action']="Encode (Şifreleme)";
+        $this->info['en']['action']="Encode Tool";
+        $this->info['tr']['description']="Online ve ücretsiz encode (şifreleme) aracı.";
+        $this->info['en']['description']="Online Encode Tool";
+        $this->info['tr']['page']="Encode (Şifreleme)";
+        $this->info['en']['page']="Encode Tool";
+        
+        return view("encode",['info' => $this->info[\App::getLocale()]]);
+    }
+
+    public function encodeType($type){
+        return $type;
     }
 }

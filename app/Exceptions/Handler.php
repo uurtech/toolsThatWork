@@ -48,7 +48,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {   
-        return redirect("https://phpanaliz.com/tools/public");
+        //return redirect("https://phpanaliz.com/tools/public");
         return parent::render($request, $exception);
     }
 }
