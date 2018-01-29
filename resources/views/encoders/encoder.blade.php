@@ -3,11 +3,11 @@
 
 
 <div>
-@lang("encode.md5Welcome")
+@lang("encode.".$type."Welcome")
 </div>
 <form method="post">
 {{ csrf_field() }}
-<input type="hidden" name="type" value="md5Encode"/>
+<input type="hidden" name="type" value="{{$type}}"/>
 @if(!empty($raw))
 <input type="text" class="form-control" name="encodeString" value="{{$raw}}"/>
 @else

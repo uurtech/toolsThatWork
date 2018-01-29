@@ -128,9 +128,57 @@ class ToolsController extends Controller
             $this->info['en']['page']="MD5 Encode Tool";
             $encodedData = ($request->encodeString != null) ? md5($request->encodeString) : "" ;
             $raw = ($request != null) ? $request->encodeString : "";
+        }else if($type === "base64Encode"){
+            $this->info['tr']['title']="Base64 Encode (Şifreleme) Online ve Ücretsiz";
+            $this->info['en']['title']="Online Base64 Encode Tool";
+            $this->info['tr']['action']="Base64 Encode (Şifreleme)";
+            $this->info['en']['action']="base64 Encode Tool";
+            $this->info['tr']['description']="Online ve ücretsiz Base64 encode (şifreleme) aracı.";
+            $this->info['en']['description']="Online Base64 Encode Tool";
+            $this->info['tr']['page']="Base64 Encode (Şifreleme)";
+            $this->info['en']['page']="Base64 Encode Tool";
+
+            $encodedData = ($request->encodeString != null) ? base64_encode($request->encodeString) : "" ;
+            $raw = ($request != null) ? $request->encodeString : "";
+        }else if($type === "urlEncode"){
+            $this->info['tr']['title']="URL Encode (Şifreleme) Online ve Ücretsiz";
+            $this->info['en']['title']="Online URL Encode Tool";
+            $this->info['tr']['action']="URL Encode (Şifreleme)";
+            $this->info['en']['action']="URL Encode Tool";
+            $this->info['tr']['description']="Online ve ücretsiz URL encode (şifreleme) aracı.";
+            $this->info['en']['description']="Online URL Encode Tool";
+            $this->info['tr']['page']="URL Encode (Şifreleme)";
+            $this->info['en']['page']="URL Encode Tool";
+
+            $encodedData = ($request->encodeString != null) ? urlencode($request->encodeString) : "" ;
+            $raw = ($request != null) ? $request->encodeString : "";
+        }else if($type === "sha256Encode"){
+            $this->info['tr']['title']="SHA-256 Encode (Şifreleme) Online ve Ücretsiz";
+            $this->info['en']['title']="Online SHA-256 Encode Tool";
+            $this->info['tr']['action']="SHA-256 Encode (Şifreleme)";
+            $this->info['en']['action']="SHA-256 Encode Tool";
+            $this->info['tr']['description']="Online ve ücretsiz SHA-256 encode (şifreleme) aracı.";
+            $this->info['en']['description']="Online SHA-256 Encode Tool";
+            $this->info['tr']['page']="SHA-256 Encode (Şifreleme)";
+            $this->info['en']['page']="SHA-256 Encode Tool";
+
+            $encodedData = ($request->encodeString != null) ? hash('sha256',$request->encodeString) : "" ;
+            $raw = ($request != null) ? $request->encodeString : "";
+        }else if($type === "sha1Encode"){
+            $this->info['tr']['title']="SHA-1 Encode (Şifreleme) Online ve Ücretsiz";
+            $this->info['en']['title']="Online SHA-1 Encode Tool";
+            $this->info['tr']['action']="SHA-1 Encode (Şifreleme)";
+            $this->info['en']['action']="SHA-1 Encode Tool";
+            $this->info['tr']['description']="Online ve ücretsiz SHA-1 encode (şifreleme) aracı.";
+            $this->info['en']['description']="Online SHA-1Encode Tool";
+            $this->info['tr']['page']="SHA-1 Encode (Şifreleme)";
+            $this->info['en']['page']="SHA-1Encode Tool";
+
+            $encodedData = ($request->encodeString != null) ? sha1($request->encodeString) : "" ;
+            $raw = ($request != null) ? $request->encodeString : "";
         }
 
-        return view("encoders.".$type, ['info' => $this->info[\App::getLocale()],'data' => $encodedData,'raw' => $raw]);
+        return view("encoders.encoder", ['info' => $this->info[\App::getLocale()],'data' => $encodedData,'raw' => $raw,'type' => $type]);
 
 
     }
