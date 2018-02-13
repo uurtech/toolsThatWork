@@ -48,9 +48,7 @@
 
     <!-- Page Content -->
     <div class="container">
-
             <div class="row">
-      
               <div class="col-lg-3">
                 <h1 class="my-4">{{$info['action']}}</h1>
                 <div class="list-group">
@@ -60,15 +58,11 @@
                   <a href="{{ URL::to('tool/decode') }}" class="list-group-item">@lang("home.decode")</a>
                   <a href="{{ URL::to('tool/mxEntryCheck') }}" class="list-group-item">@lang("home.mxEntryCheck")</a>
                   <a href="{{ URL::to('tool/stringOneLiner') }}" class="list-group-item">@lang("home.stringOneLiner")</a>
-
-
                 </div>
               </div>
 
                <!-- /.col-lg-3 -->
-               <div class="col-lg-9">
-
-          
+               <div class="col-lg-9">          
                     <div class="card card-outline-secondary my-4">
                       <div class="card-header">
                         {{$info['page']}}
@@ -86,7 +80,17 @@
           
               </div>
               <!-- /.container -->
-      
+              <center>
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- Büyük Afiş -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:728px;height:90px"
+                     data-ad-client="ca-pub-3789690953881934"
+                     data-ad-slot="3386341161"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+              </center>
           
               <!-- Bootstrap core JavaScript -->
             </body>

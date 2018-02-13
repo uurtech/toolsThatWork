@@ -98,7 +98,7 @@ class ToolsController extends Controller
     }
     
 
-    public function encode(Request $request){
+    public function encode(){
         $this->info['tr']['title']="Encode (Şifreleme) Online ve Ücretsiz";
         $this->info['en']['title']="Online Encode Tool";
         $this->info['tr']['action']="Encode (Şifreleme)";
@@ -179,7 +179,19 @@ class ToolsController extends Controller
         }
 
         return view("encoders.encoder", ['info' => $this->info[\App::getLocale()],'data' => $encodedData,'raw' => $raw,'type' => $type]);
+    }
 
-
+    public function decode(){
+        $this->info['tr']['title']="Encode (Şifreleme) Online ve Ücretsiz";
+        $this->info['en']['title']="Online Encode Tool";
+        $this->info['tr']['action']="Encode (Şifreleme)";
+        $this->info['en']['action']="Encode Tool";
+        $this->info['tr']['description']="Online ve ücretsiz encode (şifreleme) aracı.";
+        $this->info['en']['description']="Online Encode Tool";
+        $this->info['tr']['page']="Encode (Şifreleme)";
+        $this->info['en']['page']="Encode Tool";
+        
+        
+        return view("decode",['info' => $this->info[\App::getLocale()]]);
     }
 }
