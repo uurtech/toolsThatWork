@@ -182,16 +182,108 @@ class ToolsController extends Controller
     }
 
     public function decode(){
-        $this->info['tr']['title']="Encode (Şifreleme) Online ve Ücretsiz";
-        $this->info['en']['title']="Online Encode Tool";
-        $this->info['tr']['action']="Encode (Şifreleme)";
-        $this->info['en']['action']="Encode Tool";
-        $this->info['tr']['description']="Online ve ücretsiz encode (şifreleme) aracı.";
-        $this->info['en']['description']="Online Encode Tool";
-        $this->info['tr']['page']="Encode (Şifreleme)";
-        $this->info['en']['page']="Encode Tool";
-        
-        
+        $this->info['tr']['title']="Decode (Çözümleme) Online ve Ücretsiz";
+        $this->info['en']['title']="Online Decode Tool";
+        $this->info['tr']['action']="Decode (Çözümleme)";
+        $this->info['en']['action']="Decode Tool";
+        $this->info['tr']['description']="Online ve ücretsiz decode (çözümleme) aracı.";
+        $this->info['en']['description']="Online Decode Tool";
+        $this->info['tr']['page']="Decode (Çözümleme)";
+        $this->info['en']['page']="Decode Tool";
+
+
+
         return view("decode",['info' => $this->info[\App::getLocale()]]);
+    }
+
+    public function decodeType($type, Request $request){
+        $decodedData = "";
+        $raw = "";
+       if($type === "base64Decode"){
+            $this->info['tr']['title']="Base64 Decode (Çözümleme) Online ve Ücretsiz";
+            $this->info['en']['title']="Online Base64 Decode Tool";
+            $this->info['tr']['action']="Base64 Decode (Çözümleme)";
+            $this->info['en']['action']="base64 Decode Tool";
+            $this->info['tr']['description']="Online ve ücretsiz Base64 decode (çözümleme) aracı.";
+            $this->info['en']['description']="Online Base64 Decode Tool";
+            $this->info['tr']['page']="Base64 Decode (Çözümleme)";
+            $this->info['en']['page']="Base64 Decode Tool";
+
+            $decodedData = ($request->decodeString != null) ? base64_decode($request->decodeString) : "" ;
+            $raw = ($request != null) ? $request->decodeString : "";
+        }else if($type === "urlDecode"){
+            $this->info['tr']['title']="URL Decode (Çözümleme) Online ve Ücretsiz";
+            $this->info['en']['title']="Online URL Decode Tool";
+            $this->info['tr']['action']="URL Decode (Çözümleme)";
+            $this->info['en']['action']="URL Decode Tool";
+            $this->info['tr']['description']="Online ve ücretsiz URL decode (çözümleme) aracı.";
+            $this->info['en']['description']="Online URL Encode Tool";
+            $this->info['tr']['page']="URL Decode (Çözümleme)";
+            $this->info['en']['page']="URL Decode Tool";
+
+            $decodedData = ($request->decodeString != null) ? urlDecode($request->decodeString) : "" ;
+            $raw = ($request != null) ? $request->decodeString : "";
+        }else if($type === "sha256Decode"){
+            $this->info['tr']['title']="SHA-256 Decode (Çözümleme) Online ve Ücretsiz";
+            $this->info['en']['title']="Online SHA-256 Decode Tool";
+            $this->info['tr']['action']="SHA-256 Decode (Çözümleme)";
+            $this->info['en']['action']="SHA-256 Decode Tool";
+            $this->info['tr']['description']="Online ve ücretsiz SHA-256 decode (çözümleme) aracı.";
+            $this->info['en']['description']="Online SHA-256 Decode Tool";
+            $this->info['tr']['page']="SHA-256 Decode (Şifreleme)";
+            $this->info['en']['page']="SHA-256 Decode Tool";
+
+            $decodedData = ($request->decodeString != null) ? hash('sha256',$request->decodeString) : "" ;
+            $raw = ($request != null) ? $request->decodeString : "";
+        }else if($type === "sha1Decode"){
+            $this->info['tr']['title']="SHA-1 Decode (Çözümleme) Online ve Ücretsiz";
+            $this->info['en']['title']="Online SHA-1 Encode Tool";
+            $this->info['tr']['action']="SHA-1 Decode (Çözümleme)";
+            $this->info['en']['action']="SHA-1 Decode Tool";
+            $this->info['tr']['description']="Online ve ücretsiz SHA-1 decode (çözümleme) aracı.";
+            $this->info['en']['description']="Online SHA-1Encode Tool";
+            $this->info['tr']['page']="SHA-1 Decode (Çözümleme)";
+            $this->info['en']['page']="SHA-Decode Tool";
+
+            $decodedData = ($request->decodeString != null) ? sha1($request->decodeString) : "" ;
+            $raw = ($request != null) ? $request->decodeString : "";
+        }
+        return view("decoders.decoder", ['info' => $this->info[\App::getLocale()],'data' => $decodedData,'raw' => $raw,'type' => $type]);
+
+    }
+
+    public function stringOneLiner(){
+        $this->info['tr']['title']="Yazıyı tek satır yapma aracı";
+        $this->info['en']['title']="Online String one liner";
+        $this->info['tr']['action']="Tek Satır Yap";
+        $this->info['en']['action']="String One Liner";
+        $this->info['tr']['description']="Online ücretsiz yazıyı tek satır yapma aracı.";
+        $this->info['en']['description']="Online free tool to make your string one line";
+        $this->info['tr']['page']="Tek Satır Yap";
+        $this->info['en']['page']="String One Liner";
+
+        return view("string",['info' => $this->info[$this->locale]]);
+    }
+
+    public function mxEntryCheck(Request $request){
+        
+        $this->info['tr']['title']="MX Entry Kontrolü";
+        $this->info['en']['title']="Check MX Entries";
+        $this->info['tr']['action']="Mx Kayıtları";
+        $this->info['en']['action']="MX Entry";
+        $this->info['tr']['description']="Online ücretsiz mx entry kayıtları";
+        $this->info['en']['description']="Online free tool to check mx entries";
+        $this->info['tr']['page']="MX Kayıtları";
+        $this->info['en']['page']="MX Entry";
+
+
+        $mx = "";
+        if(isset($request->domain)){
+            $mx = shell_exec("dig mx ".$request->domain);
+            $mx = str_replace(";;",";;<br/><br/>",$mx);
+            $mx = str_replace("AUTHORITY SECTION:","<strong>AUTHORITY SECTION:",$mx);
+            $mx = str_replace("Query time:","</strong>Query time:",$mx);
+        }
+        return view("mx",['info' => $this->info[$this->locale],'mx' => $mx]);
     }
 }

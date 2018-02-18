@@ -29,7 +29,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="/">@lang("home.home")
+                  <a class="nav-link" href="{{ URL::TO('/')}}">@lang("home.home")
                   </a>
                 </li>
                 <li class="nav-item">
@@ -94,7 +94,14 @@
           
               <!-- Bootstrap core JavaScript -->
             </body>
-              
+              <script type="text/javascript">
+                function convert(){
+                  var text = document.getElementById("yazi").value;
+                  
+                  document.getElementById("yazi").value = text.replace(/(\r\n|\n|\r)/gm,"");
+
+                }
+              </script>
               <!-- Footer -->
               <footer class="py-5 bg-dark">
                   <div class="container">

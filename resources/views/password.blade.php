@@ -31,7 +31,7 @@
         @endif
     @endif
     
-    <input type="submit" class="btn btn-success">
+    <input type="submit" class="btn btn-success" style="float:left">
 
 </form>
 

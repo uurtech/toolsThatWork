@@ -21,7 +21,11 @@ Route::get('/tool/encode/','ToolsController@encode');
 Route::get('/tool/encode/{type}','ToolsController@encodeType');
 Route::get('/tool/decode/','ToolsController@decode');
 Route::get('/tool/decode/{type}','ToolsController@decodeType');
+Route::get('/tool/stringOneLiner','ToolsController@stringOneLiner');
+Route::get('/tool/mxEntryCheck','ToolsController@mxEntryCheck');
 
 Route::post('/tool/raffle','ToolsController@raffle');
 Route::post('/tool/passwordGenerator','ToolsController@password');
 Route::post('/tool/encode/{type?}/{request?}', 'ToolsController@encodeType');
+Route::post('/tool/decode/{type?}/{request?}','ToolsController@decodeType');
+Route::post('/tool/mxEntryCheck','ToolsController@mxEntryCheck');
