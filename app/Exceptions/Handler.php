@@ -48,7 +48,6 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {   
-        return "this tool is under development";
         return parent::render($request, $exception);
     }
 }

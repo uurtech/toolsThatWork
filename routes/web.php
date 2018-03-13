@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('/share-information/{id?}','ShareController@details');
+Route::post('/share-information','ShareController@post');
+
+
 Route::get('/', 'HomeController@index');
 Route::get('/tool/raffle','ToolsController@raffle');
 Route::get('/tool/passwordGenerator','ToolsController@password');
@@ -29,3 +33,11 @@ Route::post('/tool/passwordGenerator','ToolsController@password');
 Route::post('/tool/encode/{type?}/{request?}', 'ToolsController@encodeType');
 Route::post('/tool/decode/{type?}/{request?}','ToolsController@decodeType');
 Route::post('/tool/mxEntryCheck','ToolsController@mxEntryCheck');
+
+
+Route::get('excel','ExcelController@index');
+Route::post('excel','ExcelController@upload');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
